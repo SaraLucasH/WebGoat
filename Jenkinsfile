@@ -3,19 +3,19 @@ pipeline {
     stages{
         stage('Build') { 
             steps {
-                maven "clean install"
+                bat "mvn clean install"
             }
         }
     
         stage("Analisis PMD") {
             steps {
-                maven "pmd:pmd"                
+                bat "mvn pmd:pmd"                
             }
         }
         
         stage("Análisis Checkstyle") {
             steps {
-                maven "checkstyle:checkstyle" 			
+                bat "mvn checkstyle:checkstyle" 			
             }
         }
     } 
